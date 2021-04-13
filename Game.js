@@ -9,7 +9,7 @@ class Game {
  * @return  {Array}    An array of two Player objects.
  */
   createPlayers(){
-    const players = [new Player('player one', 1, '#e15258', active = true);
+    const players = [new Player('player one', 1, '#e15258', true),
                     new Player('player two', 2, '#e59a13')];
     return players;
   }
