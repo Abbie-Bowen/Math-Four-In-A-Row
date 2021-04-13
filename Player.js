@@ -12,14 +12,22 @@ class Player {
     * @param   {integer}   num - Number of token objects to be created
     * @return  {array}     tokens - an array of new token objects
   */
+  createTokens(num) {
+    const tokens = [];
 
-createTokens(num) {
-  const tokens = [];
+    for (let i=1; i<num; i++) {
+      let token = new Token(this, i);
+      tokens.push(token);
+    }
 
-  for (let i=1; i<num; i++) {
-    let token = new Token(this, i);
-    tokens.push(token);
+    return tokens;
   }
 
-  return tokens;
+  get unusedTokens() {
+    return this.tokens.filter(token => !token.dropped);
+  }
+
+  get activeToken() {
+    return this.unusedTokens[0];
+  }
 }

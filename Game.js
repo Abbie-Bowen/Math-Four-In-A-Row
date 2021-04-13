@@ -13,8 +13,19 @@ class Game {
                     new Player('player two', 2, '#e59a13')];
     return players;
   }
+  /**
+  *returns active player.
+  *@return {object} player -The active player.
+  */
+  get activePlayer() {
+    return this.players.find(player => player.active);
+  }
   /*
   *Gets game ready to play
   */
-  startGame() {}
+  startGame() {
+    this.board.drawHTMLBoard();
+    this.activePlayer.activeToken.drawHTMLToken();
+    this.ready = true;
+  }
 }
