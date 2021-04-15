@@ -16,7 +16,7 @@ createSpaces(){
      const columns = [];
 
      for (let y=0; y<this.rows; y++) {
-       let space = new Space (x, y);
+       const space = new Space (x, y);
        columns.push(space);
      }
 
