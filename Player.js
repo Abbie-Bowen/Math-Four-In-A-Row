@@ -1,10 +1,11 @@
 class Player {
-  constructor (name, id, color, active = false) {
+  constructor (name, id, color, active = false, mathType) {
     this.name = name;
     this.id = id;
     this.color = color;
     this.active = active;
     this.tokens = this.createTokens(21);
+    this.mathType = mathType;
   }
 
   /**
@@ -38,4 +39,5 @@ class Player {
 checkTokens() {
   return this.unusedTokens.length == 0 ? false : true;
 }
+
 }

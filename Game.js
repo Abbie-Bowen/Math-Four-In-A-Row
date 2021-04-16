@@ -3,6 +3,7 @@ class Game {
     this.board = new Board();
     this.players = this.createPlayers();
     this.ready = false;
+    this.mathReady = false;
   }
   /*
  * Creates two player objects
@@ -26,15 +27,37 @@ class Game {
   startGame() {
     this.board.drawHTMLBoard();
     this.activePlayer.activeToken.drawHTMLToken();
-    this.ready = true;
+    this.showMathQuestion();
   }
 
+  /**
+  * Displays a math question for the user to answer.
+  */
+    showMathQuestion() {
+      this.ready = false;
+      this.mathReady = true;
+      const question = new MathQuestion();
+      document.getElementById('math-question').style.visibility = "visible"
+      document.getElementById('game-scene').style.opacity = '.5';
+      document.getElementById("math-question").textContent = question.question;
+      document.getElementById("math-question").style.opacity = '1';
+    }
+
+    /**
+    * hides math question.
+    */
+      hideMathQuestion() {
+        document.getElementById("math-question").style.opacity = '0';
+        document.getElementById('game-scene').style.opacity = '1';
+        this.mathReady = false;
+        this.ready = true;
+      }
   /**
   *Branches code, depending on what key player presses
   *@param {object} e - Keydown event objects
   */
   handleKeydown(e) {
-    if (this.ready) {
+    if (this.ready && !this.mathReady) {
       if (e.key === "ArrowLeft") {
         this.activePlayer.activeToken.moveLeft();
       } else if (e.key === "ArrowRight") {
@@ -42,7 +65,10 @@ class Game {
       } else if (e.key === "ArrowDown") {
           this.playToken()
       }
-    }
+    } else if (!this.ready && this.mathReady) {
+          if (e.key === "ArrowUp")
+          this.hideMathQuestion();
+      }
   }
 /**
 *Finds Space object to drop Token into, drops Token.
@@ -159,7 +185,7 @@ switchPlayers() {
         this.switchPlayers();
         if (this.activePlayer.checkTokens()) {
           this.activePlayer.activeToken.drawHTMLToken();
-          this.ready = true;
+          this.showMathQuestion();
         } else {
           this.gameOver('No more tokens.');
         }
