@@ -37,17 +37,17 @@ class Game {
       this.ready = false;
       this.mathReady = true;
       const question = new MathQuestion();
-      document.getElementById('math-question').style.visibility = "visible"
+      document.querySelector('div.math-problem').style.visibility = "visible"
       document.getElementById('game-scene').style.opacity = '.5';
       document.getElementById("math-question").textContent = question.question;
-      document.getElementById("math-question").style.opacity = '1';
+      document.querySelector('div.math-problem').style.opacity = '1';
     }
 
     /**
     * hides math question.
     */
       hideMathQuestion() {
-        document.getElementById("math-question").style.opacity = '0';
+        document.querySelector('div.math-problem').style.opacity = '0';
         document.getElementById('game-scene').style.opacity = '1';
         this.mathReady = false;
         this.ready = true;

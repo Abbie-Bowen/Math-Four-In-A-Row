@@ -1,7 +1,7 @@
 class MathQuestion {
   constructor (){
+    this.answer = 0;
     this.question = this.buildAdditionQuestion();
-    // this.answer = 
     this.attempt = 0;
     this.correct = false;
   }
@@ -20,7 +20,8 @@ class MathQuestion {
   buildAdditionQuestion(){
       let addendOne = Math.floor(Math.random() * (10));
       let addendTwo = Math.floor(Math.random() * (10));
-      return `${addendOne} + ${addendTwo}`;
+      this.answer = addendOne + addendTwo;
+      return `${addendOne}+${addendTwo}`;
   }
 
 }
