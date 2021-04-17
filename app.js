@@ -16,3 +16,10 @@ document.getElementById('begin-game').addEventListener('click', function() {
 document.addEventListener('keydown', function(event){
   game.handleKeydown(event);
 });
+
+/**
+*Listen for keyboard presses
+*/
+document.getElementById('enter-answer').addEventListener('click', function(){
+  game.handleMathButton();
+});

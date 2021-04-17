@@ -4,6 +4,7 @@ class Game {
     this.players = this.createPlayers();
     this.ready = false;
     this.mathReady = false;
+    this.mathQuestion = new MathQuestion();
   }
   /*
  * Creates two player objects
@@ -36,10 +37,11 @@ class Game {
     showMathQuestion() {
       this.ready = false;
       this.mathReady = true;
-      const question = new MathQuestion();
+      this.mathQuestion = new MathQuestion();
+      console.log(this.mathQuestion.answer);
       document.querySelector('div.math-problem').style.visibility = "visible"
       document.getElementById('game-scene').style.opacity = '.5';
-      document.getElementById("math-question").textContent = question.question;
+      document.getElementById("math-question").textContent = this.mathQuestion.question;
       document.querySelector('div.math-problem').style.opacity = '1';
     }
 
@@ -52,6 +54,8 @@ class Game {
         this.mathReady = false;
         this.ready = true;
       }
+
+
   /**
   *Branches code, depending on what key player presses
   *@param {object} e - Keydown event objects
@@ -65,11 +69,30 @@ class Game {
       } else if (e.key === "ArrowDown") {
           this.playToken()
       }
-    } else if (!this.ready && this.mathReady) {
-          if (e.key === "ArrowUp")
-          this.hideMathQuestion();
-      }
+    }
   }
+
+  handleMathButton() {
+    let input = document.getElementById('answer').value;
+    console.log(input);
+    if (!this.ready && this.mathReady) {
+        if (input == this.mathQuestion.answer && this.mathQuestion.attempt === 0) {
+            this.mathFeedback('Correct!')
+            this.hideMathQuestion();
+        // } else if (input !== this.mathQuestion.answer && this.mathQuestion.attempt === 0) {
+        //     this.mathFeedback('Incorrect. Please answer a new math problem to keep your turn.')
+        //     this.mathQuestion.attempt += 1;
+        //     this.showMathQuestion();
+        } else if (input !== this.mathQuestion.answer) {
+            this.mathFeedback("Incorrect. Next player's turn.")
+            this.ready = true;
+            // document.getElementById('game-board-underlay').;
+            this.switchPlayers();
+            this.activePlayer.activeToken.drawHTMLToken();
+            this.showMathQuestion();
+      }
+    }
+      }
 /**
 *Finds Space object to drop Token into, drops Token.
 */
@@ -171,6 +194,15 @@ switchPlayers() {
        document.getElementById('game-over').style.display = 'block';
        document.getElementById('game-over').textContent = message;
      }
+
+     /**
+      * Displays math message.
+      * @param {string} message - correct or incorrect and remaining tries.
+      */
+      mathFeedback(message) {
+        document.getElementById('game-over').style.display = 'block';
+        document.getElementById('game-over').textContent = message;
+      }
      /**
     * Updates game state after token is dropped.
     * @param   {Object}  token  -  The token that's being dropped.
