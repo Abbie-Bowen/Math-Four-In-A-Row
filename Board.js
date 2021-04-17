@@ -13,15 +13,24 @@ createSpaces(){
    const spaces = [];
 
    for (let x=0; x<this.columns; x++){
-     const column = [];
+     const columns = [];
 
      for (let y=0; y<this.rows; y++) {
-       let space = new Space (x, y);
+       const space = new Space (x, y);
        columns.push(space);
      }
 
-     spaces.push(column);
+     spaces.push(columns);
    }
 
    return spaces;
+ }
+
+  drawHTMLBoard(){
+    for (let column of this.spaces) {
+      for (let space of column) {
+      space.drawSVGSpace();
+      }
+    }
+  }
 }
