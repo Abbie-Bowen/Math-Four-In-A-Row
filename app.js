@@ -8,18 +8,17 @@ document.getElementById('begin-game').addEventListener('click', function() {
   game.startGame();
   this.style.display = 'none';
   document.getElementById('play-area').style.opacity = '.5';
-  document.getElementById('math-type').style.opacity = '1';
 });
 
 /**
-*Listen for keyboard presses
+*Listen for keyboard presses for token
 */
 document.addEventListener('keydown', function(event){
   game.handleKeydown(event);
 });
 
 /**
-*Listen for keyboard presses
+*Listen for click on math input
 */
 document.getElementById('enter-answer').addEventListener('click', function(){
   game.handleMathButton();
