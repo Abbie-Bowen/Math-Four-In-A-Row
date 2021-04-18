@@ -1,7 +1,7 @@
 <html>
     <head>
         <meta charset = "UTF-8">
-        <title>Four in a Row with Treehouse</title>
+        <title>Math Four in a Row</title>
         <link href="https://fonts.googleapis.com/css?family=Wendy+One" rel="stylesheet">
         <link rel = "stylesheet" type = "text/css" href = "style.css" />
     </head>
@@ -10,29 +10,53 @@
 
 		<!--
 			Start Game Button
-			When a player clicks this button, the game will begin
+			When a player clicks this button, the player options screen will display
 		-->
     	<button id = "begin-game">
     		Start
     	</button>
 
-      <!--
-  			Buttons for player to choose math type
-  		-->
-      <div id = "math-type">
-      	<button id = "math-type-addition">
-      		Addition
-      	</button>
-        <button id = "math-type-subtraction">
-          Subtraction
-        </button>
-        <button id = "math-type-multiplication">
-          Multiplication
-        </button>
-        <button id = "math-type-division">
-          Division
-        </button>
+		<!--
+			Player selections menu
+		-->
+    <form id = "player-selections" action="index.html" method="post" novalidate>
+        <h1 id = 'player'></h1>
+        <label for = 'name'>Enter name:</label>
+          <input type = 'text' id = 'name'>
+        <!--
+    			Buttons for player to choose math type
+    		-->
+        <div id = "math-type">
+          <label for "math">Choose the type of math questions.</label>
+          <select id = "math">
+              <option hidden>Select type of math questions.</option>
+              <option value = "addition" selected>Addition</option>
+              <option value = "subtraction">Subtraction</option>
+              <option value = "mulitiplication">Multiplication</option>
+              <option value = " division">Division</option>
+        </div>
+
+        <!--
+    			Input for player to choose their token color
+    		-->
+        <div id = "color-selection">
+          <span>Choose your color.</span>
+          <input type = "color" name = "color" id = "player-color">
+        </div>
+
+        <!--
+          Ready Button
+          When a player clicks this button the first time, the player options
+          screen will display a second time for player 2
+
+          When a player clicks this button the second time, the game will begin.
+        -->
+        <div id = "options-complete">
+          <button type = "submit" id = "ready">Ready!</button>
+        </div>
       </div>
+    </form>
+
       <!--
         Math question & input.
       -->

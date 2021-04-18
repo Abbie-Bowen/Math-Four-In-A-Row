@@ -12,8 +12,45 @@ class Game {
  * @return  {Array}    An array of two Player objects.
  */
   createPlayers(){
-    const players = [new Player('player one', 1, '#e15258', true),
-                    new Player('player two', 2, '#e59a13')];
+    const players =[];
+    document.getElementById('player-selections').style.opacity = '1';
+    display player-selection div
+    insert textContent "Hello, player 1!" to h1 "player"
+    listen for click on the "ready" button
+      //set value of playerId
+      let playerNameInput = document.getElementById();
+      if value of input "player-name" !== ""
+        playerId = value;
+        else if value of input "player-name" === ""
+        playerId = "Player One"
+      //set value of player math choice
+      let playerMathInput = document.getElementById();
+      playerMath = value of mathChoiceInput
+      //set value of player token color
+      let playerColorInput = document.getElementById();
+      playerColor = value of "player-color"
+
+    const playerOne = new Player(playerId, 1, playerColor, true, playerMath);
+
+    insert textContent "Hello, player 2!" to h1 "player"
+    listen for click on the "ready" button
+      //set value of playerId
+      playerNameInput = document.getElementById();
+      if value of input "player-name" !== ""
+        playerId = value;
+        else if value of input "player-name" === ""
+        playerId = "Player One"
+      //set value of player math choice
+      playerMathInput = document.getElementById();
+      playerMath = value of mathChoiceInput
+      //set value of player token color
+      playerColorInput = document.getElementById();
+      playerColor = value of "player-color"
+
+    const playerTwo = new Player(playerId, 2, playerColor, false, playerMath);
+
+    players.push(playerOne, playerTwo);
+    document.getElementById('player-selections').style.opacity = '0';
     return players;
   }
 
