@@ -7,7 +7,8 @@ const game = new Game();
 document.getElementById('begin-game').addEventListener('click', function() {
   game.startGame();
   this.style.display = 'none';
-  document.getElementById('play-area').style.opacity = '1';
+  document.getElementById('play-area').style.opacity = '.5';
+  document.getElementById('math-type').style.opacity = '1';
 });
 
 /**

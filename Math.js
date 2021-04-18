@@ -2,7 +2,6 @@ class MathQuestion {
   constructor (){
     this.answer = 0;
     this.question = this.buildAdditionQuestion();
-    this.attempt = 0;
   }
 
 /**
@@ -10,6 +9,7 @@ class MathQuestion {
 *@return {string} string - addition question.
 */
   buildAdditionQuestion(){
+      document.getElementById('answer').value = '';
       let addendOne = Math.floor(Math.random() * (10));
       let addendTwo = Math.floor(Math.random() * (10));
       this.answer = addendOne + addendTwo;
