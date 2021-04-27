@@ -77,7 +77,7 @@ class Game {
   showMathQuestion() {
     this.ready = false;
     this.mathReady = true;
-    this.mathQuestion = new MathQuestion();
+    this.mathQuestion = new MathQuestion(this.activePlayer.mathType);
     console.log(this.mathQuestion.answer);
     document.querySelector('div.math-problem').style.visibility = "visible"
     document.getElementById('game-scene').style.opacity = '.5';

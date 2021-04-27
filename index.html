@@ -3,7 +3,7 @@
         <meta charset = "UTF-8">
         <title>Math Four in a Row</title>
         <link href="https://fonts.googleapis.com/css?family=Wendy+One" rel="stylesheet">
-        <link rel = "stylesheet" type = "text/css" href = "style.css" />
+        <link rel = "stylesheet" type = "text/css" href = "style.css">
     </head>
 
     <body>
@@ -20,14 +20,18 @@
 			Player selections menu
 		-->
     <form id = "player-selections" action="index.html" method="post" novalidate>
-        <h1 id = 'player'></h1>
+      <div>
+        <h1 id = 'player'>
+          
+        </h1>
         <label for = 'name'>Enter name:</label>
           <input type = 'text' id = 'name'>
+        </div>
         <!--
     			Buttons for player to choose math type
     		-->
         <div id = "math-type">
-          <label for "math">Choose the type of math questions.</label>
+          <label for "math">Choose the type of math questions.
           <select id = "math">
               <option hidden>Select type of math questions.</option>
               <option value = "addition" selected>Addition</option>
