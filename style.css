@@ -29,11 +29,11 @@ body {
 }
 
 #begin-game {
-	width: 200px;
+	width: 300px;
 	background-color: #645a7e;
 	border-radius: 8px;
     color: #fff;
-	padding: 25px;
+	padding: 35px;
 	position: relative;
 	left: 0;
 	right: 0;
@@ -43,7 +43,11 @@ body {
 	cursor: pointer;
 	border: none;
     font-family: 'Wendy One', sans-serif;
-    font-size: 25px;
+    font-size: 35px;
+}
+
+#player-selections-form {
+  visibility: hidden;
 }
 
 div.math-problem {
@@ -65,24 +69,6 @@ div.math-problem {
     font-size: 60px;
 }
 
-div.math-type {
-  visibility: hidden;
-	width: 400px;
-	background-color: #645a7e;
-	border-radius: 8px;
-    color: #fff;
-	padding: 25px;
-	position: absolute;
-	left: 0;
-	right: 0;
-	margin: 0 auto;
-	top: 200px;
-	z-index: 400;
-	cursor: pointer;
-	border: none;
-    font-family: 'Wendy One', sans-serif;
-    font-size: 60px;
-}
 
 input[type="number"] {
 	width: 100%;
