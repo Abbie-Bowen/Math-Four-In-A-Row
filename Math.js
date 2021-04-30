@@ -15,7 +15,9 @@ class MathQuestion {
     let numeralOne = Math.floor(Math.random() * 10);
     let numeralTwo = Math.floor(Math.random() * 10);
     this.answer = numeralOne + numeralTwo;
-    return `${numeralOne} + ${numeralTwo} =`;
+    document.getElementById(
+      "math-question"
+    ).textContent = `${numeralOne} + ${numeralTwo} =`;
   }
 
   /**
@@ -29,7 +31,9 @@ class MathQuestion {
     let numeralTwo = Math.floor(Math.random() * 10);
     let sum = numeralOne + numeralTwo;
     this.answer = sum - numeralOne;
-    return `${sum} - ${numeralOne} =`;
+    document.getElementById(
+      "math-question"
+    ).textContent = `${sum} - ${numeralOne} =`;
   }
 
   /**
@@ -42,7 +46,9 @@ class MathQuestion {
     let numeralOne = Math.floor(Math.random() * 10);
     let numeralTwo = Math.floor(Math.random() * 10);
     this.answer = numeralOne * numeralTwo;
-    return `${numeralOne} * ${numeralTwo} =`;
+    document.getElementById(
+      "math-question"
+    ).textContent = `${numeralOne} * ${numeralTwo} =`;
   }
 
   /**
@@ -56,7 +62,9 @@ class MathQuestion {
     let numeralTwo = Math.floor(Math.random() * 10);
     let product = numeralOne * numeralTwo;
     this.answer = product / numeralOne;
-    return `${product} / ${numeralOne} =`;
+    document.getElementById(
+      "math-question"
+    ).textContent = `${product} / ${numeralOne} =`;
   }
   /**
    * branches math problem set based on player.mathType selection
@@ -66,17 +74,13 @@ class MathQuestion {
 
     switch (mathType) {
       case "addition":
-        buildAdditionQuestion();
-        break;
+        return this.buildAdditionQuestion();
       case "subtraction":
-        buildSubtractionQuestion();
-        break;
+        return this.buildSubtractionQuestion();
       case "multiplication":
-        buildMultiplicationQuestion();
-        break;
+        return this.buildMultiplicationQuestion();
       case "division":
-        buildDivisionQuestion();
-        break;
+        return this.buildDivisionQuestion();
     }
   }
 }

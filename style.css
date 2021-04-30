@@ -34,11 +34,11 @@ body {
 	border-radius: 8px;
     color: #fff;
 	padding: 35px;
-	position: relative;
+	position: absolute;
 	left: 0;
 	right: 0;
 	margin: 0 auto;
-	top: 200px;
+	top: 0 auto;
 	z-index: 200;
 	cursor: pointer;
 	border: none;
@@ -47,7 +47,7 @@ body {
 }
 
 #player-selections-form {
-  visibility: hidden;
+  display: block;
 }
 
 div.math-problem {

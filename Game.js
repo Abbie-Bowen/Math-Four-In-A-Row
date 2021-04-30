@@ -1,70 +1,10 @@
 class Game {
-  constructor() {
+  constructor(players) {
     this.board = new Board();
-    this.players = this.createPlayers();
+    this.players = players;
     this.ready = false;
     this.mathReady = false;
     this.mathQuestion = new MathQuestion();
-  }
-
-  /*
-   * Creates two player objects
-   * @return  {Array}    An array of two Player objects.
-   */
-  createPlayers() {
-    const players = [];
-    document.getElementById("player").textContent = "Hello, player 1!";
-    let clickedOnce = false;
-
-    document
-      .getElementById("finalize-player")
-      .addEventListener("click", function () {
-        if (!clickedOnce) {
-          //set value of playerId
-          let playerNameInput = document.getElementById("name").value;
-          if (playerNameInput !== "") {
-            let playerId = playerNameInput;
-          } else if (playerNameInput === "") {
-            let playerId = "Player One";
-          }
-          //set value of playerMath
-          let playerMath = document.getElementById("math").value;
-          //set value of player token color
-          let playerColorInput = document.getElementById("player-color").value;
-          const playerOne = new Player(
-            playerId,
-            1,
-            playerColor,
-            true,
-            playerMath
-          );
-          players.push(playerOne);
-          document.getElementById("player").textContent = "Hello, player 2!";
-          clickedOne = true;
-        } else if (clickedOnce) {
-          //set value of playerId
-          let playerNameInput = document.getElementById("name").value;
-          if (playerNameInput !== "") {
-            let playerId = playerNameInput;
-          } else if (playerNameInput === "") {
-            let playerId = "Player Two";
-          }
-          //set value of playerMath
-          let playerMath = document.getElementById("math").value;
-          //set value of player token color
-          let playerColorInput = document.getElementById("player-color").value;
-          const playerTwo = new Player(
-            playerId,
-            2,
-            playerColor,
-            false,
-            playerMath
-          );
-          players.push(playerTwo);
-          document.getElementById("player-selections").style.opacity = "0";
-        }
-      });
-    return players;
   }
 
   /**
@@ -91,12 +31,8 @@ class Game {
     this.ready = false;
     this.mathReady = true;
     this.mathQuestion = new MathQuestion(this.activePlayer.mathType);
-    console.log(this.mathQuestion.answer);
     document.querySelector("div.math-problem").style.visibility = "visible";
     document.getElementById("game-scene").style.opacity = ".5";
-    document.getElementById(
-      "math-question"
-    ).textContent = this.mathQuestion.question;
     document.querySelector("div.math-problem").style.opacity = "1";
   }
 
