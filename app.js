@@ -36,6 +36,9 @@ function beginGameOrCreatePlayers() {
     let currentPlayer = numberOfPlayers + 1;
     createPlayer(currentPlayer);
     document.getElementById("player-selections").reset();
+    document.getElementById("player").textContent = `Hello, player ${
+      numberOfPlayers + 1
+    }!`;
   } else if (numberOfPlayers === 1) {
     let currentPlayer = numberOfPlayers + 1;
     createPlayer(currentPlayer);
