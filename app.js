@@ -15,11 +15,11 @@ beginGameButton.addEventListener("click", beginGameOrCreatePlayers);
 /**
  *Listen for keyboard presses for token
  */
-if (game) {
-  document.addEventListener("keydown", function (event) {
+document.addEventListener("keydown", function (event) {
+  if (game) {
     game.handleKeydown(event);
-  });
-}
+  }
+});
 /**
  *Listen for click on math input
  */
