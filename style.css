@@ -50,6 +50,39 @@ body {
   display: block;
 }
 
+#player-selections {
+  margin: auto;
+  line-height: 60px;
+}
+
+.math-symbol {
+  font-size: 100px;
+}
+
+input[type=radio] {
+  opacity: 0;
+  position: absolute;
+}
+
+.math-questions .flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 120px;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+}
+
+input[type=radio]: focus + label span.math-symbol {
+  background-color: #645a7e;
+}
+
+input[type=radio]:focus + label span.math-symbol {
+  border: white solid 2px;
+}
+
 div.math-problem {
   visibility: hidden;
 	width: 400px;
@@ -177,4 +210,30 @@ circle {
 	top: -60px;
 	left: 0;
 	right: 0;
+}
+
+h1 {
+position: relative;
+top: 20px;
+margin: 20px;
+font-size: 55px;
+text-align: center;
+line-height: 55px;
+}
+
+h2 {
+position: relative;
+margin: 20px;
+font-size: 40px;
+text-align: center;
+line-height: 60px;
+}
+
+.line {
+position: relative;
+margin-left: auto;
+margin-right: auto;
+width: 650px;
+height: 0px;
+border: 1px solid white;
 }

@@ -13,8 +13,8 @@ beginGameButton.addEventListener("click", beginGameOrCreatePlayers);
 function updateTextContent() {
   document.getElementById(
     "player"
-  ).textContent = `Hello, player ${currentPlayer}!`;
-  beginGameButton.textContent = `player ${currentPlayer} ready!`;
+  ).textContent = `Hello, player ${currentPlayer}`;
+  beginGameButton.textContent = `Player ${currentPlayer} is ready`;
 }
 /**
  *Listen for keyboard presses for token
