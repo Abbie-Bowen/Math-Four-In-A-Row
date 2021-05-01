@@ -1,17 +1,21 @@
 let game;
 let players = [];
-let numberOfPlayers = 0;
+let currentPlayer = 1;
 let playerForm = document.getElementById("player-selections-form");
 
 /*
  * Listens for click on `#begin-game` and calls beginGameOrCreatePlayers()
  */
-document.getElementById("player").textContent = `Hello, player ${
-  numberOfPlayers + 1
-}!`;
 const beginGameButton = document.getElementById("begin-game");
+updateTextContent();
 beginGameButton.addEventListener("click", beginGameOrCreatePlayers);
 
+function updateTextContent() {
+  document.getElementById(
+    "player"
+  ).textContent = `Hello, player ${currentPlayer}!`;
+  beginGameButton.textContent = `player ${currentPlayer} ready!`;
+}
 /**
  *Listen for keyboard presses for token
  */
@@ -32,19 +36,15 @@ document.getElementById("enter-answer").addEventListener("click", function () {
  * calls beginGame()
  */
 function beginGameOrCreatePlayers() {
-  if (numberOfPlayers === 0) {
-    let currentPlayer = numberOfPlayers + 1;
-    createPlayer(currentPlayer);
+  if (currentPlayer === 1) {
+    createPlayer();
     document.getElementById("player-selections").reset();
-    document.getElementById("player").textContent = `Hello, player ${
-      numberOfPlayers + 1
-    }!`;
-  } else if (numberOfPlayers === 1) {
-    let currentPlayer = numberOfPlayers + 1;
-    createPlayer(currentPlayer);
+    updateTextContent();
+  } else if (currentPlayer === 2) {
+    createPlayer();
     document.getElementById("player-selections").reset();
     playerForm.style.display = "none";
-  } else if (numberOfPlayers === 2) {
+  } else if (currentPlayer === 3) {
     beginGame(players);
   }
 }
@@ -52,7 +52,7 @@ function beginGameOrCreatePlayers() {
  * creates new Player object using input from user
  * pushes new Player object to @param players {array}
  */
-function createPlayer(currentPlayer) {
+function createPlayer() {
   //set value of playerId
   let playerNameInput = document.getElementById("name").value;
   let playerId = "";
@@ -80,7 +80,7 @@ function createPlayer(currentPlayer) {
     playerMath
   );
   players.push(player);
-  numberOfPlayers++;
+  currentPlayer++;
 }
 
 /*
