@@ -1,67 +1,68 @@
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset = "UTF-8">
         <title>Math Four in a Row</title>
         <link href="https://fonts.googleapis.com/css?family=Wendy+One" rel="stylesheet">
-        <link rel = "stylesheet" type = "text/css" href = "style.css" />
+        <link rel = "stylesheet" type = "text/css" href = "style.css">
     </head>
 
     <body>
-
+      <div id="player-selections-form">
 		<!--
-			Start Game Button
-			When a player clicks this button, the player options screen will display
+			Player selections form
 		-->
-    	<button id = "begin-game">
-    		Start
-    	</button>
-
-		<!--
-			Player selections menu
-		-->
-    <form id = "player-selections" action="index.html" method="post" novalidate>
-        <h1 id = 'player'></h1>
-        <label for = 'name'>Enter name:</label>
-          <input type = 'text' id = 'name'>
+      <h1>Welcome to Four in a Row!</h1>
+      <h2 id="player">Player One</h2>
+      <form id="player-selections" action="index.html" method="post">
+          <div>
+            <label for="name">Please enter your name:</label>
+            <input type="text" id="name" name="name">
+          </div>
         <!--
     			Buttons for player to choose math type
     		-->
-        <div id = "math-type">
-          <label for "math">Choose the type of math questions.</label>
-          <select id = "math">
+          <div>
+            <label for="math">Please choose the type of math questions you would like to answer.</label>
+            <select id="math" name="math">
               <option hidden>Select type of math questions.</option>
-              <option value = "addition" selected>Addition</option>
-              <option value = "subtraction">Subtraction</option>
-              <option value = "mulitiplication">Multiplication</option>
-              <option value = " division">Division</option>
-        </div>
-
+              <option value="addition" selected>Addition</option>
+              <option value="subtraction">Subtraction</option>
+              <option value="mulitiplication">Multiplication</option>
+              <option value="division">Division</option>
+            </select>
+          </div>
         <!--
     			Input for player to choose their token color
     		-->
-        <div id = "color-selection">
+        <div>
           <span>Choose your color.</span>
-          <input type = "color" name = "color" id = "player-color">
+          <input type="color" name="color" id="player-color">
         </div>
-
         <!--
-          Ready Button
-          When a player clicks this button the first time, the player options
-          screen will display a second time for player 2
-
-          When a player clicks this button the second time, the game will begin.
+          Start Game Button
+          When a player clicks this button, the player options screen will display
+          When the second player clicks this button, the game will begin
         -->
-        <div id = "options-complete">
-          <button type = "submit" id = "ready">Ready!</button>
-        </div>
-      </div>
+          <!-- <button id = "finalize-player">
+            Player Ready!
+          </button> -->
     </form>
+  </div>
+  <!--
+    Start Game Button
+    When a player clicks this button, the player options screen will display
+  -->
+    <button id = "begin-game">
+      Play Four in a Row
+    </button>
 
       <!--
         Math question & input.
       -->
       <div class= "math-problem">
-        <div id = "math-question"></div> <input type="number" id="answer">
+        <div id = "math-question"></div>
+        <input type="number" id="answer">
         <button id = "enter-answer">
           Enter
         </button>
