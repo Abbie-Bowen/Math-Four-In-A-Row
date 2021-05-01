@@ -59,7 +59,7 @@ function createPlayer(currentPlayer) {
   if (playerNameInput.value !== "") {
     playerId = playerNameInput;
   } else if (playerNameInput === "") {
-    playerId = `Player ${i}`;
+    playerId = `Player ${currentPlayer}`;
   }
   //set value of playerMath
   let playerMath = document.getElementById("math").value;
