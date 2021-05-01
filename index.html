@@ -14,6 +14,7 @@
 		-->
       <h1>Welcome to Four in a Row!</h1>
       <h2 id="player">Player One</h2>
+      <div class="line"></div>
       <form id="player-selections" action="index.html" method="post">
           <div>
             <label for="name">Please enter your name:</label>
@@ -22,15 +23,34 @@
         <!--
     			Buttons for player to choose math type
     		-->
-          <div>
-            <label for="math">Please choose the type of math questions you would like to answer.</label>
-            <select id="math" name="math">
-              <option hidden>Select type of math questions.</option>
-              <option value="addition" selected>Addition</option>
-              <option value="subtraction">Subtraction</option>
-              <option value="mulitiplication">Multiplication</option>
-              <option value="division">Division</option>
-            </select>
+          <div class = "math-questions">
+            <span id="math">Please choose the type of math questions you would like to answer.</span><br>
+              <div  class = 'flex-container'>
+                <div>
+                  <input type="radio" id="addition" name="math" value="addition" checked>
+                  <label for = addition>
+                    <span class="math-symbol">&plus;</span>
+                  </label>
+                </div>
+                <div>
+              <input type="radio" id="subtraction" name="math"  value="subtraction">
+              <label for = subtraction>
+                <span class="math-symbol">&minus;</span>
+              </label>
+            </div>
+            <div>
+              <input type="radio" id="mulitiplication" name="math"  value="mulitiplication">
+              <label for = mulitiplication>
+                <span class="math-symbol">&times;</span>
+              </label>
+            </div>
+            <div>
+              <input type="radio" id="division" name="math"  value="division">
+              <label for = division>
+                <span class="math-symbol">&divide;</span>
+              </label>
+            </div>
+            </div>
           </div>
         <!--
     			Input for player to choose their token color

@@ -40,6 +40,7 @@ class Game {
    * hides math question.
    */
   hideMathQuestion() {
+    document.getElementById("math-question").textContent = "";
     document.querySelector("div.math-problem").style.opacity = "0";
     document.getElementById("game-scene").style.opacity = "1";
     this.mathReady = false;
@@ -78,7 +79,6 @@ class Game {
         document
           .getElementById("game-board-underlay")
           .removeChild(currentTokenElement);
-        this.ready = true;
         this.switchPlayers();
         this.activePlayer.activeToken.drawHTMLToken();
         this.showMathQuestion();
