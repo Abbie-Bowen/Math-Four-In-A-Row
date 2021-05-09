@@ -64,7 +64,7 @@ function createPlayer() {
   //set value of playerMath
   let playerMath = document.getElementById("math").value;
   //set value of player token color
-  let playerColor = document.getElementById("player-color").value;
+  let playerColor = document.getElementById("color").value;
   //sets boolean for first player to active
   let playerActive = "";
   if (currentPlayer === 1) {
