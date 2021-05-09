@@ -2,12 +2,14 @@ let game;
 let players = [];
 let currentPlayer = 1;
 let playerForm = document.getElementById("player-selections-form");
+let colorChoices = document.querySelectorAll('input[name = "color"]');
 
 /*
  * Listens for click on `#begin-game` and calls beginGameOrCreatePlayers()
  */
 const beginGameButton = document.getElementById("begin-game");
 updateTextContent();
+colorChoices[0].checked = true;
 beginGameButton.addEventListener("click", beginGameOrCreatePlayers);
 
 function updateTextContent() {
@@ -39,10 +41,12 @@ function beginGameOrCreatePlayers() {
   if (currentPlayer === 1) {
     createPlayer();
     document.getElementById("player-selections").reset();
+    hidePlayerOneColor();
     updateTextContent();
   } else if (currentPlayer === 2) {
     createPlayer();
     document.getElementById("player-selections").reset();
+    beginGameButton.textContent = `We are ready to play Four in a Row!`;
     playerForm.style.display = "none";
   } else if (currentPlayer === 3) {
     beginGame(players);
@@ -62,9 +66,17 @@ function createPlayer() {
     playerId = `Player ${currentPlayer}`;
   }
   //set value of playerMath
-  let playerMath = document.getElementById("math").value;
+  let playerMath = "";
+  let mathSelection = document.querySelector('input[name = "math"]:checked');
+  if (mathSelection != null) {
+    playerMath = mathSelection.value;
+  }
   //set value of player token color
-  let playerColor = document.getElementById("color").value;
+  let playerColor = "";
+  let colorSelection = document.querySelector('input[name = "color"]:checked');
+  if (colorSelection != null) {
+    playerColor = colorSelection.value;
+  }
   //sets boolean for first player to active
   let playerActive = "";
   if (currentPlayer === 1) {
@@ -83,6 +95,18 @@ function createPlayer() {
   currentPlayer++;
 }
 
+function hidePlayerOneColor() {
+  let playerOneColor = players[0].color;
+  document.getElementById(playerOneColor).disabled = true;
+  let button = document.getElementById(playerOneColor).parentElement;
+  button.transition = "all .5s ease-in-out";
+  button.style.opacity = "0";
+  if (colorChoices[0].value !== playerOneColor) {
+    colorChoices[0].checked = true;
+  } else if (colorChoices[0].value === playerOneColor) {
+    colorChoices[1].checked = true;
+  }
+}
 /*
  * creates a new Game object and passes in the players Array
  * calls startGame() on the new Game object
