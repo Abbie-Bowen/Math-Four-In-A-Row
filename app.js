@@ -3,6 +3,7 @@ let players = [];
 let currentPlayer = 1;
 let playerForm = document.getElementById("player-selections-form");
 let colorChoices = document.querySelectorAll('input[name = "color"]');
+let playersDiv = document.getElementById("show-players");
 
 /*
  * Listens for click on `#begin-game` and calls beginGameOrCreatePlayers()
@@ -46,9 +47,11 @@ function beginGameOrCreatePlayers() {
   } else if (currentPlayer === 2) {
     createPlayer();
     document.getElementById("player-selections").reset();
-    beginGameButton.textContent = `We are ready to play Four in a Row!`;
+    showPlayersDiv();
+    beginGameButton.textContent = `Start Game`;
     playerForm.style.display = "none";
   } else if (currentPlayer === 3) {
+    playersDiv.style.display = "none";
     beginGame(players);
   }
 }
@@ -105,6 +108,61 @@ function hidePlayerOneColor() {
     colorChoices[0].checked = true;
   } else if (colorChoices[0].value === playerOneColor) {
     colorChoices[1].checked = true;
+  }
+}
+
+function showPlayersDiv() {
+  for (let i = 1; i <= 2; i++) {
+    let playerDiv = document.createElement("div");
+    playerDiv.setAttribute("id", `player-${i}`);
+
+    let lineBreak = document.createElement("br");
+
+    let headerSpan = document.createElement("h1");
+    headerSpan.innerHTML = `Player ${i}`;
+    playerDiv.appendChild(headerSpan);
+
+    let headerPlayerSpan = document.createElement("h2");
+    headerPlayerSpan.innerHTML = `${players[i - 1].name}`;
+    playerDiv.appendChild(headerPlayerSpan);
+
+    let playerMathSpan = document.createElement("div");
+    switch (players[i - 1].mathType) {
+      case "addition":
+        playerMathSpan.innerHTML = "&plus;";
+        break;
+      case "subtraction":
+        playerMathSpan.innerHTML = "&minus;";
+        break;
+      case "multiplication":
+        playerMathSpan.innerHTML = "&times;";
+        break;
+      case "division":
+        playerMathSpan.innerHTML = "&divide;";
+        break;
+    }
+    playerMathSpan.setAttribute("class", "math-symbol");
+    playerDiv.appendChild(playerMathSpan);
+
+    let playerColorSvg = document.createElement("svg");
+    playerColorSvg.setAttribute("width", 100);
+    playerColorSvg.setAttribute("height", 100);
+    playerColorSvg.setAttribute("viewbox", "0 0 100 100");
+
+    let playerColorCircle = document.createElement("circle");
+    playerColorCircle.setAttribute("cx", 50);
+    playerColorCircle.setAttribute("cy", 50);
+    playerColorCircle.setAttribute("r", 40);
+    playerColorCircle.setAttribute("fill", `${players[i - 1].color}`);
+    playerColorSvg.appendChild(playerColorCircle);
+
+    let playerColorDiv = document.createElement("div");
+    playerColorDiv.appendChild(playerColorSvg);
+
+    playerDiv.appendChild(playerColorDiv);
+    console.log(playerDiv);
+
+    playersDiv.appendChild(playerDiv);
   }
 }
 /*
