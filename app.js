@@ -144,22 +144,27 @@ function showPlayersDiv() {
     playerMathSpan.setAttribute("class", "math-symbol");
     playerDiv.appendChild(playerMathSpan);
 
-    let playerColorSvg = document.createElement("svg");
+    let playerColorSvg = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      "svg"
+    );
     playerColorSvg.setAttribute("width", 100);
     playerColorSvg.setAttribute("height", 100);
     playerColorSvg.setAttribute("viewbox", "0 0 100 100");
 
-    let playerColorCircle = document.createElement("circle");
+    let playerColorCircle = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      "circle"
+    );
     playerColorCircle.setAttribute("cx", 50);
     playerColorCircle.setAttribute("cy", 50);
     playerColorCircle.setAttribute("r", 40);
     playerColorCircle.setAttribute("fill", `${players[i - 1].color}`);
+    // playerColorSvg.appendChild(playerColorCircle);
+
     playerColorSvg.appendChild(playerColorCircle);
 
-    let playerColorDiv = document.createElement("div");
-    playerColorDiv.appendChild(playerColorSvg);
-
-    playerDiv.appendChild(playerColorDiv);
+    playerDiv.appendChild(playerColorSvg);
     console.log(playerDiv);
 
     playersDiv.appendChild(playerDiv);
