@@ -13,8 +13,8 @@
 			Player selections form
 		-->
       <h1>Welcome to Four in a Row!</h1>
-      <h2 id="player">Player One</h2>
       <div class="line"></div>
+      <h2 id="player">Player One</h2>
       <form id="player-selections" action="index.html" method="post">
           <div>
             <label for="name">Please enter your name:</label>
@@ -28,46 +28,98 @@
               <div  class = 'flex-container'>
                 <div>
                   <input type="radio" id="addition" name="math" value="addition" checked>
-                  <label for = addition>
-                    <span class="math-symbol">&plus;</span>
-                  </label>
+                  <label for = addition class="math-symbol">&plus;</label>
                 </div>
                 <div>
-              <input type="radio" id="subtraction" name="math"  value="subtraction">
-              <label for = subtraction>
-                <span class="math-symbol">&minus;</span>
-              </label>
-            </div>
-            <div>
-              <input type="radio" id="mulitiplication" name="math"  value="mulitiplication">
-              <label for = mulitiplication>
-                <span class="math-symbol">&times;</span>
-              </label>
-            </div>
-            <div>
-              <input type="radio" id="division" name="math"  value="division">
-              <label for = division>
-                <span class="math-symbol">&divide;</span>
-              </label>
-            </div>
-            </div>
+                  <input type="radio" id="subtraction" name="math"  value="subtraction">
+                  <label for = subtraction class="math-symbol">&minus;</label>
+                </div>
+                <div>
+                  <input type="radio" id="multiplication" name="math"  value="multiplication">
+                  <label for = multiplication class="math-symbol">&times;</label>
+                </div>
+                <div>
+                  <input type="radio" id="division" name="math"  value="division">
+                  <label for = division class="math-symbol">&divide;</label>
+                </div>
+              </div>
           </div>
         <!--
     			Input for player to choose their token color
     		-->
-        <div>
+        <div class ="player-color">
           <span>Choose your color.</span>
-          <input type="color" name="color" id="player-color">
+          <div class = "flex-container">
+            <div>
+              <input type="radio" id="black" name="color" value="black">
+              <label for = "black" class ="color-circle">
+                <svg width="100" height="100" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="40" fill="black"/>
+                </svg>
+              </label>
+            </div>
+            <div>
+              <input type="radio" id="pink" name="color" value="pink">
+              <label for = "pink" class ="color-circle">
+              <svg width="100" height="100" viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="40" fill="pink"/>
+              </svg>
+              </label>
+            </div>
+            <div>
+              <input type="radio" id="orange" name="color" value="orange">
+              <label for = "orange" class ="color-circle">
+                <svg width="100" height="100" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="40" fill="orange"/>
+                </svg>
+              </label>
+            </div>
+            <div>
+              <input type="radio" id="yellow" name="color" value="yellow">
+              <label for = "yellow" class ="color-circle">
+                <svg width="100" height="100" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="40" fill="yellow"/>
+                </svg>
+              </label>
+            </div>
+            <div>
+              <input type="radio" id="green" name="color" value="green">
+              <label for = "green" class ="color-circle">
+                <svg width="100" height="100" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="40" fill="green"/>
+                </svg>
+              </label>
+            </div>
+            <div>
+              <input type="radio" id="teal" name="color" value="teal">
+              <label for = "teal" class ="color-circle">
+                <svg width="100" height="100" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="40" fill="teal"/>
+                </svg>
+              </label>
+            </div>
+            <div>
+              <input type="radio" id="purple" name="color" value="purple">
+              <label for = "purple" class ="color-circle">
+                <svg width="100" height="100" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="40" fill="purple"/>
+                </svg>
+              </label>
+            </div>
+            <div>
+              <input type="radio" id="white" name="color" value="white">
+              <label for = "white" class ="color-circle">
+                <svg width="100" height="100" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="40" fill="white"/>
+                </svg>
+              </label>
+            </div>
+          </div>
         </div>
-        <!--
-          Start Game Button
-          When a player clicks this button, the player options screen will display
-          When the second player clicks this button, the game will begin
-        -->
-          <!-- <button id = "finalize-player">
-            Player Ready!
-          </button> -->
     </form>
+  </div>
+
+  <div class = "flex-container" id="show-players">
   </div>
   <!--
     Start Game Button
@@ -76,6 +128,7 @@
     <button id = "begin-game">
       Play Four in a Row
     </button>
+
 
       <!--
         Math question & input.

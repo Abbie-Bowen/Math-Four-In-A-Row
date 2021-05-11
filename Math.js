@@ -48,7 +48,7 @@ class MathQuestion {
     this.answer = numeralOne * numeralTwo;
     document.getElementById(
       "math-question"
-    ).textContent = `${numeralOne} * ${numeralTwo} =`;
+    ).textContent = `${numeralOne} x ${numeralTwo} =`;
   }
 
   /**

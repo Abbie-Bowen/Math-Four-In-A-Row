@@ -52,11 +52,12 @@ body {
 
 #player-selections {
   margin: auto;
-  line-height: 60px;
 }
 
 .math-symbol {
   font-size: 100px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 input[type=radio] {
@@ -75,12 +76,57 @@ input[type=radio] {
   align-items: center;
 }
 
-input[type=radio]: focus + label span.math-symbol {
-  background-color: #645a7e;
+label.math-symbol {
+	box-sizing: border-box;
+	display: block;
+	height: 100%;
+	width: 100%;
+  border: 2px solid backgroundColor;
 }
 
-input[type=radio]:focus + label span.math-symbol {
-  border: white solid 2px;
+input[type="text"]:focus {
+  opacity: 1;
+  transition: all .5s ease-in-out;
+  border: 3px solid yellow;
+}
+
+.player-color .flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 120px;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+}
+
+label.color-circle {
+	box-sizing: border-box;
+	display: block;
+	height: 100%;
+	width: 100%;
+  border: 2px solid backgroundColor;
+}
+
+
+input[type="radio"]:checked ~ label {
+  opacity: 1;
+  transition: all .5s ease-in-out;
+	border: 2px solid white;
+}
+
+
+#show-players {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: auto;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  font-size: 55px;
 }
 
 div.math-problem {
@@ -233,7 +279,7 @@ line-height: 60px;
 position: relative;
 margin-left: auto;
 margin-right: auto;
-width: 650px;
+width: 700px;
 height: 0px;
 border: 1px solid white;
 }

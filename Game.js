@@ -60,6 +60,8 @@ class Game {
       } else if (e.key === "ArrowDown") {
         this.playToken();
       }
+    } else if (e.key === "Enter" && this.mathReady) {
+      this.handleMathButton();
     }
   }
 
