@@ -20,6 +20,9 @@ My current additions:
 
 3. Player choices display before game begins.
 
+4. Added arrows that display during an active turn. Players can use arrow
+   keys or buttons to move and drop token.
+
 Future additions:
 
 1. Allow players to edit their choices from the display page before the game

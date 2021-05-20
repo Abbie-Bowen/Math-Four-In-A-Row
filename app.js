@@ -27,6 +27,12 @@ document.addEventListener("keydown", function (event) {
     game.handleKeydown(event);
   }
 });
+
+document.addEventListener("click", function (event) {
+  if (game && event.target.className === "navButtons") {
+    game.handleKeydown(event);
+  }
+});
 /**
  *Listen for click on math input
  */
@@ -165,7 +171,6 @@ function showPlayersDiv() {
     playerColorSvg.appendChild(playerColorCircle);
 
     playerDiv.appendChild(playerColorSvg);
-    console.log(playerDiv);
 
     playersDiv.appendChild(playerDiv);
   }

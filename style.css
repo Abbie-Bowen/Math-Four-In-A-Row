@@ -153,6 +153,17 @@ input[type="number"] {
 	width: 100%;
 }
 
+#navigation-buttons {
+	border-radius: 8px;
+    color: #fff;
+	cursor: pointer;
+	border: none;
+    font-family: 'Wendy One', sans-serif;
+    font-size: 35px;
+  height: auto;
+  display: none;
+}
+
 /* BOARD AND PIECES */
 #game-board {
 	position: relative;

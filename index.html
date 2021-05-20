@@ -141,6 +141,15 @@
         </button>
       </div>
 
+      <!--
+        #nagivation-buttons will allow users to move the token without a keyboard
+      -->
+        <div id = "navigation-buttons">
+          <button id = "left" class="navButtons">&leftarrow;</button>
+          <button id = "drop" class="navButtons">&ShortDownArrow;</button>
+          <button id = "right" class="navButtons">&rightarrow;</button>
+        </div>
+
 		<!--
 			#game-scene: container for entire play area
 			#play-area: container for the board
@@ -161,10 +170,13 @@
 
 
 				<!--
-					#game-over will eventually display a game over message to the players
+					#game-over will display a game over message to the players and give
+          feedback on the math problems
 				-->
         		<div id = "game-over">
         		</div>
+
+
 
 
 				<!--

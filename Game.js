@@ -28,6 +28,7 @@ class Game {
    * Displays a math question for the user to answer.
    */
   showMathQuestion() {
+    this.hideNavButtons();
     this.ready = false;
     this.mathReady = true;
     this.mathQuestion = new MathQuestion(this.activePlayer.mathType);
@@ -43,6 +44,7 @@ class Game {
     document.getElementById("math-question").textContent = "";
     document.querySelector("div.math-problem").style.opacity = "0";
     document.getElementById("game-scene").style.opacity = "1";
+    this.showNavButtons();
     this.mathReady = false;
     this.ready = true;
   }
@@ -53,11 +55,11 @@ class Game {
    */
   handleKeydown(e) {
     if (this.ready && !this.mathReady) {
-      if (e.key === "ArrowLeft") {
+      if (e.key === "ArrowLeft" || e.target.id === "left") {
         this.activePlayer.activeToken.moveLeft();
-      } else if (e.key === "ArrowRight") {
+      } else if (e.key === "ArrowRight" || e.target.id === "right") {
         this.activePlayer.activeToken.moveRight(this.board.columns);
-      } else if (e.key === "ArrowDown") {
+      } else if (e.key === "ArrowDown" || e.target.id === "drop") {
         this.playToken();
       }
     } else if (e.key === "Enter" && this.mathReady) {
@@ -199,8 +201,20 @@ class Game {
    * @param {string} message - correct or incorrect and remaining tries.
    */
   mathFeedback(message) {
-    document.getElementById("game-over").style.display = "block";
-    document.getElementById("game-over").textContent = message;
+    const mathMessageEl = document.getElementById("game-over");
+    mathMessageEl.style.display = "block";
+    mathMessageEl.textContent = message;
+    $("#game-over").fadeOut(2000);
+  }
+
+  showNavButtons() {
+    let navButtons = document.getElementById("navigation-buttons");
+    navButtons.style.display = "block";
+  }
+
+  hideNavButtons() {
+    let navButtons = document.getElementById("navigation-buttons");
+    navButtons.style.display = "none";
   }
 
   /**
